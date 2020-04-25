@@ -47,6 +47,16 @@ namespace kval_ekz
                 Console.WriteLine("Некорректный ввод, повторите");
                 read = Console.ReadLine();
             }
+            if (arrSize < 0)
+            {
+                Console.WriteLine("Значение должно быть меньше 0");
+                read = Console.ReadLine();
+                while (!Int32.TryParse(read, out arrSize))
+                {
+                    Console.WriteLine("Некорректный ввод, повторите");
+                    read = Console.ReadLine();
+                }
+            }
         }
         private static void FillLibrary()
         {
