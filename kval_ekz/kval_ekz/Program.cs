@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace kval_ekz
 {
@@ -15,6 +16,9 @@ namespace kval_ekz
             ReadArrSize();
             Library = new Book[arrSize];
             FillLibrary();
+            SortLibrary();
+            FileWork();
+            Console.WriteLine("Массив Library был записан в текстовый файл");
             Console.ReadKey();
         }
         private static void ReadArrSize()
@@ -59,6 +63,17 @@ namespace kval_ekz
         private static void SortLibrary()
         {
             Library.OrderBy(l => l.Genre).ThenBy(l => l.Author).ThenBy(l => l.Name).ToArray();
+        }
+        private static void FileWork()
+        {
+            using(StreamWriter sw = new StreamWriter("file.txt"))
+            {
+                foreach (Book book in Library)
+                {
+                    sw.WriteLine(book.Name + "; " + book.Author + "; " + book.Genre);
+                }
+                sw.Close();
+            }
         }
 
         private static bool HasStrDigits(string str)
