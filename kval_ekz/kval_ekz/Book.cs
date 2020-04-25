@@ -12,6 +12,13 @@ namespace kval_ekz
         private string author;
         private string genre;
 
+        public Book()
+        {
+            this.name = "";
+            this.author = "";
+            this.genre = "";
+        }
+
         public string Name
         {
             get { return this.name; }
