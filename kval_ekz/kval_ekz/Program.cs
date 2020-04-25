@@ -56,6 +56,10 @@ namespace kval_ekz
                 Library[i].Genre = genre;
             }
         }
+        private static void SortLibrary()
+        {
+            Library.OrderBy(l => l.Genre).ThenBy(l => l.Author).ThenBy(l => l.Name).ToArray();
+        }
 
         private static bool HasStrDigits(string str)
         {
