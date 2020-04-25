@@ -98,13 +98,13 @@ namespace kval_ekz
         }
         private static void FileWork()
         {
-            using(StreamWriter sw = new StreamWriter("file.txt"))
+            using (TextWriter opnFile = new StreamWriter("file.txt"))
             {
-                foreach (Book book in Library)
+                foreach (var book in Library)
                 {
-                    sw.WriteLine(book.Name + "; " + book.Author + "; " + book.Genre);
+                    opnFile.WriteLine(book.Name + "; " + book.Author + "; " + book.Genre);
                 }
-                sw.Close();
+                opnFile.Close();
             }
         }
 
