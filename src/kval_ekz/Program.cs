@@ -17,6 +17,14 @@ namespace kval_ekz
             Library = new Book[arrSize];
             Console.WriteLine("Длина массива: " + Library.Length);
             FillLibrary();
+            Console.WriteLine("Массив");
+            foreach (Book b in Library)
+            {
+                Console.WriteLine(b.Name);
+                Console.WriteLine(b.Author);
+                Console.WriteLine(b.Genre);
+                Console.WriteLine();
+            }
             SortLibrary();
             Console.WriteLine("Отсортированный массив:");
             foreach (Book b in Library)
