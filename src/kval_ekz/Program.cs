@@ -39,10 +39,20 @@ namespace kval_ekz
                 Library[i] = new Book();
                 Console.WriteLine("Введите название книги");
                 string name = Console.ReadLine();
+                while (name.Length == 0)
+                {
+                    Console.WriteLine("Нельзя вводить пустые строки");
+                    name = Console.ReadLine();
+                }
                 Library[i].Name = name;
 
                 Console.WriteLine("Введите автора книги");
                 string author = Console.ReadLine();
+                while (author.Length == 0)
+                {
+                    Console.WriteLine("Нельзя вводить пустые строки");
+                    author = Console.ReadLine();
+                }
                 while (HasStrDigits(author))
                 {
                     Console.WriteLine("Имя автора не может содержать цифр");
@@ -52,6 +62,11 @@ namespace kval_ekz
 
                 Console.WriteLine("Введите жанр книги");
                 string genre = Console.ReadLine();
+                while (genre.Length == 0)
+                {
+                    Console.WriteLine("Нельзя вводить пустые строки");
+                    genre = Console.ReadLine();
+                }
                 while (HasStrDigits(genre))
                 {
                     Console.WriteLine("Жанр не может содержать цифр");
