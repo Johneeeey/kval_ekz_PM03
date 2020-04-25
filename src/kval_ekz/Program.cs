@@ -15,8 +15,17 @@ namespace kval_ekz
         {
             ReadArrSize();
             Library = new Book[arrSize];
+            Console.WriteLine("Длина массива: " + Library.Length);
             FillLibrary();
             SortLibrary();
+            Console.WriteLine("Отсортированный массив:");
+            foreach (Book b in Library)
+            {
+                Console.WriteLine(b.Name);
+                Console.WriteLine(b.Author);
+                Console.WriteLine(b.Genre);
+                Console.WriteLine();
+            }
             FileWork();
             Console.WriteLine("Массив Library был записан в текстовый файл");
             Console.ReadKey();
@@ -77,7 +86,7 @@ namespace kval_ekz
         }
         private static void SortLibrary()
         {
-            Library.OrderBy(l => l.Genre).ThenBy(l => l.Author).ThenBy(l => l.Name).ToArray();
+            Library = Library.OrderByDescending(l => l.Genre).ThenByDescending(l => l.Author).ThenByDescending(l => l.Name).ToArray();
         }
         private static void FileWork()
         {
